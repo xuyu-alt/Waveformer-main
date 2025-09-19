@@ -1,0 +1,54 @@
+{
+    "model": "src.training.dcc_tf",
+    "model_params": {
+        "label_len": 87,
+        "L": 32,
+        "enc_dim": 256,
+        "num_enc_layers": 10,
+        "dec_dim": 128,
+        "dec_buf_len": 100,
+        "num_dec_layers": 2,
+        "dec_chunk_size": 72,
+        "out_buf_len": 2,
+        "use_pos_enc": true,
+        "skip_connection": true,
+        "proj": true,
+        "lookahead": true
+    },
+    "train_data": {
+        "input_dir": "my_dataset/mixmic",
+        "dset": "train",
+        "sr": 44100,
+        "resample_rate": null
+    },
+    "val_data": {
+        "input_dir": "my_dataset/mixmic_eval",
+        "dset": "val",
+        "sr": 44100,
+        "resample_rate": null
+    },
+    "test_data": {
+        "input_dir": "my_dataset/mixmic_test",
+        "dset": "test",
+        "sr": 44100,
+        "resample_rate": null
+    },
+    "optim": {
+        "lr": 1.7e-05,
+        "weight_decay": 0.0001
+    },
+    "lr_sched": {
+        "mode": "max",
+        "factor": 0.7,
+        "patience": 3,
+        "min_lr": 5e-06,
+        "threshold": 0.1,
+        "threshold_mode": "abs"
+    },
+    "base_metric": "scale_invariant_signal_noise_ratio",
+    "fix_lr_epochs": 20,
+    "epochs": 150,
+    "batch_size": 4,
+    "eval_batch_size": 2,
+    "n_workers": 2
+}

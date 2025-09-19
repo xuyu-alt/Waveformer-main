@@ -1,0 +1,6 @@
+# 设置环境变量
+$env:PYTHONPATH="E:\Waveformer-main"
+$env:PYTHONWARNINGS="ignore"
+
+# 运行正常训练
+python src/training/train.py experiments/dcc_tf_ckpt_E512_10_D256_1_decrese --use_cuda
